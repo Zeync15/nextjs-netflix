@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import cls from 'classnames';
 
 export interface CardProps {
+  id: number;
   imgUrl?: string;
   size?: string;
 }
@@ -16,6 +17,7 @@ export interface ClassMapProps {
 }
 
 const Card = ({
+  id,
   imgUrl = "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1340&q=80",
   size = "medium",
 }: CardProps) => {
@@ -33,9 +35,11 @@ const Card = ({
     );
   };
 
+  const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
+
   return (
     <div className={styles.container} >
-      <motion.div className={cls(styles.imgMotionWrapper, classMap[size as keyof ClassMapProps])} whileHover={{ scale: 1.2 }}>
+      <motion.div className={cls(styles.imgMotionWrapper, classMap[size as keyof ClassMapProps])} whileHover={{...scale }}>
         <Image
           src={imgSrc}
           alt="Picture of movie"
@@ -50,4 +54,5 @@ const Card = ({
     </div>
   );
 };
+
 export default Card;
