@@ -34,7 +34,8 @@ const NavBar = ({ username }: NavBarProps) => {
         <Link href="/" className={styles.logoLink}>
           <div className={styles.logoWrapper}>
             <Image
-              src={"/static/netflix.svg"}
+              // src={"/static/netflix.svg"}
+              src={""}
               alt="Netflix logo"
               width={128}
               height={34}
